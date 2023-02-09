@@ -45,8 +45,11 @@ namespace Grid_Game
             var me = e as MouseEventArgs; // var defining MouseEventArgs as mouseEvents won't hold information on both left and right mousebuttons
             var pressedBtn = (Button)sender; // defining button pressed data to reduce inputs from (((buton)sender)... 
 
+            
+
             Console.Write("X = " + x); // debug 
             Console.Write("Y = " + y);
+            
 
             if (checkBelow(x, y) == true && e.Button == MouseButtons.Right && turn % 2 == 0) // if checkbelow = true and pressedBtn = right and turn = even
             {
@@ -54,6 +57,7 @@ namespace Grid_Game
                 {
                     pressedBtn.BackColor = Color.Yellow; // turn button yellow 
                     turn++; // iterate 
+                    
                 }
                 else
                 {
@@ -72,6 +76,10 @@ namespace Grid_Game
                     Console.WriteLine("Invalid Move");
                 }
             }
+
+            checkWin();
+
+
         }
 
         void createGrid() // create grid function, not really necessary but easier to read
@@ -110,11 +118,44 @@ namespace Grid_Game
         // call this checkwin function every time a piece is played, could only call if turn = 10, meaning each player has placed 4 pieces
         // however this feels redundant 
 
-        private bool checkWin(int x, int y)
+        private void checkWin()
         {
+            // checking for horizontal win conditions
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 6; y++)
+                {
+                    if (btn[x, y].BackColor == Color.Red && btn[x+1, y].BackColor == Color.Red && btn[x+2, y].BackColor == Color.Red && btn[x+3, y].BackColor == Color.Red)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Red Wins Horizontally");
+                    }
 
+                    else if (btn[x, y].BackColor == Color.Yellow && btn[x + 1, y].BackColor == Color.Yellow && btn[x + 2, y].BackColor == Color.Yellow && btn[x + 3, y].BackColor == Color.Yellow)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Yellow Wins Horizontally");
+                    }
 
-            return false;
+                 
+                }
+            }
+
+            // checking for vertical win conditions
+            for (int x = 0; x < 7; x++)
+            {
+                for (int y = 0; y < 3; y++)
+                {
+                    if (btn[x, y].BackColor == Color.Yellow && btn[x, y + 1].BackColor == Color.Yellow && btn[x, y + 2].BackColor == Color.Yellow && btn[x, y + 3].BackColor == Color.Yellow)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Yellow Wins Vertically");
+                    }
+
+                    else if (btn[x, y].BackColor == Color.Red && btn[x, y + 1].BackColor == Color.Red && btn[x, y + 2].BackColor == Color.Red && btn[x, y + 3].BackColor == Color.Red)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Red Wins Vertically");
+                    }
+                }
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
