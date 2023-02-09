@@ -156,6 +156,42 @@ namespace Grid_Game
                 }
             }
 
+            // checking for diagonal win condition (sloping up left to right)
+
+            for (int x = 3; x < 7; x++)
+            {
+                for (int y = 0; y < 3; y++)
+                {
+                    if (btn[x, y].BackColor == Color.Red && btn[x-1, y+1].BackColor == Color.Red && btn[x-2, y+2].BackColor == Color.Red && btn[x-3, y+3].BackColor == Color.Red)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Red Wins Diagonally");
+                    }
+
+                    else if (btn[x, y].BackColor == Color.Yellow && btn[x - 1, y + 1].BackColor == Color.Yellow && btn[x - 2, y + 2].BackColor == Color.Yellow && btn[x - 3, y + 3].BackColor == Color.Yellow)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Yellow Wins Diagonally");
+                    }
+                }
+            }
+
+            //checking for diagonal win conditions (sloping down left to right)
+
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 3; y < 6; y++)
+                {
+                    if (btn[x, y].BackColor == Color.Red && btn[x+1, y-1].BackColor == Color.Red && btn[x + 2, y - 2].BackColor == Color.Red && btn[x + 3, y - 3].BackColor == Color.Red)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Red Wins Diagonally");
+                    }
+
+                    else if (btn[x, y].BackColor == Color.Yellow && btn[x+1, y-1].BackColor == Color.Yellow && btn[x + 2, y - 2].BackColor == Color.Yellow && btn[x + 3, y - 3].BackColor == Color.Yellow)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Yellow Wins Diagonally");
+                    }
+                }
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
