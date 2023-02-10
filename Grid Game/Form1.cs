@@ -51,7 +51,8 @@ namespace Grid_Game
 
         void play_Click(object sender, EventArgs e)
         {
-            playMusic();
+            Console.WriteLine("Work In Progress");
+            //playMusic();
         }
 
         private void playMusic()
