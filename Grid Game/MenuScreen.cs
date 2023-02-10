@@ -38,5 +38,11 @@ namespace Grid_Game
         {
             Close();
         }
+
+        private void BtnRules_Click(object sender, EventArgs e)
+        {
+            DialogResult rules;
+            rules = MessageBox.Show("Player 1 uses right click and player 2 uses left click.\nThe goal is to get 4 of your own tile in a row before the other player. This can be achieved horizontaly, verticaly or diagonaly.\n", "Rules", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

@@ -62,6 +62,7 @@
             this.BtnRules.TabIndex = 2;
             this.BtnRules.Text = "Rules";
             this.BtnRules.UseVisualStyleBackColor = true;
+            this.BtnRules.Click += new System.EventHandler(this.BtnRules_Click);
             // 
             // BtnExit
             // 
