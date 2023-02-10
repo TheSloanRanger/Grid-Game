@@ -162,12 +162,14 @@ namespace Grid_Game
                 {
                     if (btn[x, y].BackColor == Color.Red && btn[x+1, y].BackColor == Color.Red && btn[x+2, y].BackColor == Color.Red && btn[x+3, y].BackColor == Color.Red)
                     {
-                        Console.WriteLine("Red Wins Horizontally");
+                        Console.WriteLine("\nRed Wins Horizontally");
+                        Close();
                     }
 
                     else if (btn[x, y].BackColor == Color.Yellow && btn[x + 1, y].BackColor == Color.Yellow && btn[x + 2, y].BackColor == Color.Yellow && btn[x + 3, y].BackColor == Color.Yellow)
                     {
-                        Console.WriteLine("Yellow Wins Horizontally");
+                        Console.WriteLine("\nYellow Wins Horizontally");
+                        Close();
                     }
 
                  
@@ -181,12 +183,14 @@ namespace Grid_Game
                 {
                     if (btn[x, y].BackColor == Color.Yellow && btn[x, y + 1].BackColor == Color.Yellow && btn[x, y + 2].BackColor == Color.Yellow && btn[x, y + 3].BackColor == Color.Yellow)
                     {
-                        Console.WriteLine("Yellow Wins Vertically");
+                        Console.WriteLine("\nYellow Wins Vertically");
+                        Close();
                     }
 
                     else if (btn[x, y].BackColor == Color.Red && btn[x, y + 1].BackColor == Color.Red && btn[x, y + 2].BackColor == Color.Red && btn[x, y + 3].BackColor == Color.Red)
                     {
-                        Console.WriteLine("Red Wins Vertically");
+                        Console.WriteLine("\nRed Wins Vertically");
+                        Close();
                     }
                 }
             }
@@ -199,30 +203,34 @@ namespace Grid_Game
                 {
                     if (btn[x, y].BackColor == Color.Red && btn[x-1, y+1].BackColor == Color.Red && btn[x-2, y+2].BackColor == Color.Red && btn[x-3, y+3].BackColor == Color.Red)
                     {
-                        Console.WriteLine("Red Wins Diagonally");
+                        Console.WriteLine("\nL2R: Red Wins Diagonally");
+                        Close();
                     }
 
                     else if (btn[x, y].BackColor == Color.Yellow && btn[x - 1, y + 1].BackColor == Color.Yellow && btn[x - 2, y + 2].BackColor == Color.Yellow && btn[x - 3, y + 3].BackColor == Color.Yellow)
                     {
-                        Console.WriteLine("Yellow Wins Diagonally");
+                        Console.WriteLine("\nL2R: Yellow Wins Diagonally");
+                        Close();
                     }
                 }
             }
 
-            //checking for diagonal win conditions (sloping down left to right)
+            //checking for diagonal win conditions (sloping up right to left)
 
             for (int x = 0; x < 4; x++)
             {
-                for (int y = 3; y < 6; y++)
+                for (int y = 0; y < 3; y++)
                 {
-                    if (btn[x, y].BackColor == Color.Red && btn[x+1, y-1].BackColor == Color.Red && btn[x + 2, y - 2].BackColor == Color.Red && btn[x + 3, y - 3].BackColor == Color.Red)
+                    if (btn[x, y].BackColor == Color.Red && btn[x+1, y+1].BackColor == Color.Red && btn[x + 2, y + 2].BackColor == Color.Red && btn[x + 3, y + 3].BackColor == Color.Red)
                     {
-                        Console.WriteLine("Red Wins Diagonally");
+                        Console.WriteLine("\nR2L: Red Wins Diagonally");
+                        Close();
                     }
 
-                    else if (btn[x, y].BackColor == Color.Yellow && btn[x+1, y-1].BackColor == Color.Yellow && btn[x + 2, y - 2].BackColor == Color.Yellow && btn[x + 3, y - 3].BackColor == Color.Yellow)
+                    else if (btn[x, y].BackColor == Color.Yellow && btn[x+1, y+1].BackColor == Color.Yellow && btn[x + 2, y + 2].BackColor == Color.Yellow && btn[x + 3, y + 3].BackColor == Color.Yellow)
                     {
-                        Console.WriteLine("Yellow Wins Diagonally");
+                        Console.WriteLine("\nR2L: Yellow Wins Diagonally");
+                        Close();
                     }
                 }
             }
